@@ -28,9 +28,9 @@ Frontend → Backend → Rule Engine → LLM Explanation
 
 npm install
 node server/index.js
-
-
 client/index.html
+
+
 📂 Project Structure
 
 referee-ai/
@@ -51,3 +51,4 @@ Prompt iteration
 🔍 Example
 Given constraints like low budget, beginner skill level, and urgent timeline,
 The Referee compares options (e.g., AWS vs Firebase) and explains trade-offs clearly.
+
