@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Referee</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f4f6f8;
+    }
+    h1 {
+      color: #333;
+    }
+    .box {
+      background: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+    select, button {
+      padding: 8px;
+      margin: 5px 0;
+      width: 200px;
+    }
+    pre {
+      background: #eee;
+      padding: 10px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧠 The Referee</h1>
+  <p>Compare options and understand trade-offs.</p>
+
+  <div class="box">
+    <h3>Constraints</h3>
+
+    <label>Budget</label><br />
+    <select id="budget">
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+    </select><br />
+
+    <label>Skill Level</label><br />
+    <select id="skill">
+      <option value="beginner">Beginner</option>
+      <option value="intermediate">Intermediate</option>
+    </select><br />
+
+    <label>Timeline</label><br />
+    <select id="timeline">
+      <option value="urgent">Urgent</option>
+      <option value="flexible">Flexible</option>
+    </select><br />
+
+    <label>Scale</label><br />
+    <select id="scale">
+      <option value="small">Small</option>
+      <option value="large">Large</option>
+    </select><br />
+
+    <button onclick="compare()">Compare</button>
+  </div>
+
+  <div class="box">
+    <h3>Result</h3>
+    <pre id="result">Waiting...</pre>
+  </div>
+
+<script>
+  async function compare() {
+    const data = {
+      budget: document.getElementById("budget").value,
+      skill: document.getElementById("skill").value,
+      timeline: document.getElementById("timeline").value,
+      scale: document.getElementById("scale").value
+    };
+
+    const res = await fetch("http://localhost:5000/compare", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    const json = await res.json();
+    document.getElementById("result").textContent =
+      document.getElementById("result").textContent =
+  json.explanation;
+
+  }
+</script>
+
+</body>
+</html>

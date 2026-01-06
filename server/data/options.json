@@ -1,0 +1,18 @@
+{
+  "aws": {
+    "name": "AWS",
+    "budget": 3,
+    "learning_curve": 2,
+    "setup_speed": 2,
+    "scalability": 5,
+    "control": 5
+  },
+  "firebase": {
+    "name": "Firebase",
+    "budget": 5,
+    "learning_curve": 5,
+    "setup_speed": 5,
+    "scalability": 3,
+    "control": 2
+  }
+}
